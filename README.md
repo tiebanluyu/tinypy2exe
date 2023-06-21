@@ -5,8 +5,8 @@
 ## Many of them are writen by ChatGPT.
 ### That'great.
 ## Download the repository.
-###run this code
+### run this code
 ` python main.py example.py `
-##example.py is the python file that want to turn into exe.
-##must be in the same path.
-##only support windows.
+## example.py is the python file that want to turn into exe.
+## must be in the same path.
+## only support windows.
