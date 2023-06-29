@@ -13,14 +13,15 @@ def level3(code:str,des:str):
     for filename in os.listdir(des+"/dist/code"):
         if filename.startswith("python"):
             exceptions.append(filename)
-    delete_files_except(des+"/dist/code", exceptions)
+
     
 
     #删除文件和移动文件
     shutil.copytree("dist/dist/code", "dist_temp")
     shutil.rmtree("dist")
+
     shutil.move("dist_temp", "dist")
-    
+    delete_files_except(des, exceptions) 
     compresszip(des)
 
 
