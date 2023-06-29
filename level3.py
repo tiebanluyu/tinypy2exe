@@ -51,8 +51,8 @@ def compresszip(des):
         print(f"uncompyle6 {pyc_file} >> {py_file} ")
         os.system(f"uncompyle6 {pyc_file} >> {py_file}")
         errortxt="Stacks of completed symbols:"
-        if  errortxt in open(des+"/"+py_file,"r").read() or os.path.getsize(py_file) < 300:
-            os.remove(des+"/"+py_file)
+        if  errortxt in open(py_file,"r").read() or os.path.getsize(py_file) < 300:
+            os.remove(py_file)
         else:
             import share 
             with open(py_file,"r+") as f:
