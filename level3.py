@@ -44,7 +44,7 @@ def compresszip(des):
     
     # Convert all pyc files to py files
     for pyc_file in return_pyc_files(des):
-        py_file = des+"/"+pyc_file
+        pyc_file = des+"/"+pyc_file
         py_file = pyc_file[:-1]
 
         import os
