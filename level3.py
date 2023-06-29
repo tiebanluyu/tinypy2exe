@@ -54,6 +54,11 @@ def compresszip(des):
         if  errortxt in open(py_file,"r").read() or os.path.getsize(py_file) < 300:
             os.remove(py_file)
         else:
+            try:
+                exec("import "+py_file[0:-3])
+            except:
+                os.remove(py_file)
+                continue   
             import share 
             with open(py_file,"r+") as f:
                 txt=share.remove_comments(f.read())
