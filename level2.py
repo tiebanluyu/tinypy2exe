@@ -1,35 +1,29 @@
-def level2(code,des):
-    import sys,os
-    import shutil
+import sys,os
+import shutil
+def level2(code,des):    
     text = execute_code(code)
-
-
     lines = text.split("\n")
     prefixed_lines = ["echo " + line for line in lines]
-    text ="@echo off\n"+"\n".join(prefixed_lines)[0:-5]#前面加echooff 删去后面echo
-
+    text ="@echo off\n"+"\n".join(prefixed_lines)[0:-5]#前面加echo off 删去后面echo
     with open(des + "/main.bat", "w+") as file:
         file.write(text)
-
-
-
-    src = "lv2.exe"
-    
-    # Copy the source file to the destination dir  ectory
+    src = "lv2.exe"   
+    # Copy the source file to the destination directory
     shutil.copy2(src, des+"/main.exe")
 
 
 def execute_code(code):
-    import sys,os
+    
     # Create a new StringIO object to capture the print output
-    class StringIO():
+    class StringIO():#chatgpt告诉我用第三方库，但用不了，我便自己写一个，可行
         def __init__(self):
             self.text=""
         def write(self,text):
-           self.text=self.text+text
-        def getvalue(self):
+            #确实在exec中调用了这个函数
+            self.text=self.text+text
+        def getvalue(self):            
             return self.text
-        def close(self):
+        def close(self):            
             pass
 
     output = StringIO()
