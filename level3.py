@@ -57,7 +57,8 @@ def compresszip(des):
             import share 
             with open(py_file,"r+") as f:
                 txt=share.remove_comments(f.read())
-                f.seek(0)
+            os.remove(py_file)    
+            with open(py_file,"w") as f:
                 f.write(txt)
     os.remove(des+"//base_library.zip")
     #os.system("del {des}//*.pyc")    
