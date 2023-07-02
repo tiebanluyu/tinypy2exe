@@ -23,7 +23,7 @@ def level3(code:str,des:str):
 
     shutil.move("dist_temp", "dist")
     delete_files_except(des, exceptions) 
-    compresszip(des)
+    #compresszip(des)#这次删对了
 
 
 def delete_files_except(des, exceptions):
@@ -33,7 +33,7 @@ def delete_files_except(des, exceptions):
             if os.path.isdir(filepath):
                 shutil.rmtree(filepath)
             else:
-                pass#os.remove(filepath)#反正几乎没有用
+                os.remove(filepath)#上次删错了
 def compresszip(des):
     import zipfile
     
