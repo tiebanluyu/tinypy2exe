@@ -18,7 +18,8 @@ def level3(code:str,des:str):
 
     #删除文件和移动文件
     shutil.copytree("dist/dist/code", "dist_temp")
-    shutil.rmtree("dist")
+    #shutil.rmtree("dist")#按理说可以删除非空文件夹，可就是不行，用cmd命令
+    os.system("rmdir /s /q dist")
 
     shutil.move("dist_temp", "dist")
     delete_files_except(des, exceptions) 
@@ -32,7 +33,7 @@ def delete_files_except(des, exceptions):
             if os.path.isdir(filepath):
                 shutil.rmtree(filepath)
             else:
-                os.remove(filepath)
+                pass#os.remove(filepath)#反正几乎没有用
 def compresszip(des):
     import zipfile
     
@@ -42,12 +43,14 @@ def compresszip(des):
     with zipfile.ZipFile(des+'/base_library.zip', 'r') as zip_ref:
         zip_ref.extractall(des)
     
-    # Convert all pyc files to py files
+    # 将pyc文件转换成py文件，再对代码进行压缩
+    #问题是，这个pyc文件似乎有问题，反编译几乎无功而返
     for pyc_file in return_pyc_files(des):
+
         pyc_file = des+"/"+pyc_file
         py_file = pyc_file[:-1]
 
-        import os
+
         print(f"uncompyle6 {pyc_file} >> {py_file} ")
         os.system(f"uncompyle6 {pyc_file} >> {py_file}")
         errortxt="Stacks of completed symbols:"
@@ -73,6 +76,9 @@ def compresszip(des):
         for py_file in return_py_files(des):
             zipf.write(py_file)"""
 def return_pyc_files(des):
+    """
+    输出指定目录下所有pyc文件
+    """
     py_files = []
     for filename in os.listdir(des):
         if filename.endswith(".pyc"):
@@ -80,6 +86,9 @@ def return_pyc_files(des):
             print(filename)
     return py_files
 def return_py_files(des):
+    """
+    输出指定目录下所有py文件
+    """
     py_files = []
     for filename in os.listdir(des):
         if filename.endswith(".py"):
