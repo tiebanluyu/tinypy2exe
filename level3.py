@@ -1,15 +1,15 @@
 from share import *
 from level2 import execute_code
-def level3(code:str,des:str):
+def level3(code:str):
     #创建py文件，为pyinstaller做准备
-    with open(des+"/code.py","w") as f:
+    with open("dist/code.py","w") as f:
         f.write(code)
 
     #执行pyinstaller
-    os.system(f"cd {des}&& pyinstaller code.py")  
+    os.system(f"cd dist&& pyinstaller code.py")  
 
     exceptions = ["code.exe", "base_library.zip"]
-    for filename in os.listdir(des+"/dist/code"):
+    for filename in os.listdir("dist/dist/code"):
         if filename.startswith("python"):
             exceptions.append(filename)
 
@@ -21,7 +21,7 @@ def level3(code:str,des:str):
     os.system("rmdir /s /q dist")
 
     shutil.move("dist_temp", "dist")
-    delete_files_except(des, exceptions) 
+    delete_files_except("dist", exceptions) 
     #compresszip(des)#这次删对了
 
 

@@ -25,3 +25,4 @@ def remove_comments(code):
     result=result.replace("    "," ")    
     return result
 import os,shutil,sys  #每个文件几乎所有模块都要 ，统一导入
+import logging

@@ -1,15 +1,15 @@
 from share import *
 
-def level2(code,des):    
+def level2(code):    
     text = execute_code(code)
     lines = text.split("\n")
     prefixed_lines = ["echo " + line for line in lines]
     text ="@echo off\n"+"\n".join(prefixed_lines)[0:-5]#前面加echo off 删去后面echo
-    with open(des + "/main.bat", "w+") as file:
+    with open( "dist/main.bat", "w+") as file:
         file.write(text)
     src = "lv2.exe"   
     # Copy the source file to the destination directory
-    shutil.copy2(src, des+"/main.exe")
+    shutil.copy2(src, "dist/main.exe")
 
 
 def execute_code(code):
