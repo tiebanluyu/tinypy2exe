@@ -1,6 +1,6 @@
 from share import *
 
-def level2(code):    
+def level2(code:str):    
     text = execute_code(code)
     lines = text.split("\n")
     prefixed_lines = ["echo " + line for line in lines]

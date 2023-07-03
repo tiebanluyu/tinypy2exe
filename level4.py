@@ -1,5 +1,5 @@
 from share import *
-def level4(code):
+def level4(code:str):
     
     with open("dist/code.py","w",encoding="utf-8") as f:
         f.write(code)
