@@ -16,5 +16,12 @@ def remove_comments(code):
         else:
             new_line = line
         new_lines.append(new_line)
-    return "\n".join(new_lines)
+    result="\n".join(new_lines)    
+            
+    while result.find(" \n")+1:  
+        result=result.replace(" \n","\n")   
+    while result.find("\n\n")+1:  
+        result=result.replace("\n\n","\n")
+    result=result.replace("    "," ")    
+    return result
 import os,shutil,sys  #每个文件几乎所有模块都要 ，统一导入
