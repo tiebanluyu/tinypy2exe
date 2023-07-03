@@ -26,7 +26,9 @@ if __name__=="__main__":
     
     #删除文件夹，再次创建   
     logging.warning(f"由于将{des}作为输出文件夹，所以需要将其清空")
-    os.system(f"cd {des}&&rmdir /s  dist")       
+    if input("确认清空，如不，输入q，结束程序")=="q":
+        raise Exception
+    os.system(f"rmdir /s /q dist")       
     logging.warning(f"再次创建{des}文件夹")
     os.system(f"md {des}")
  

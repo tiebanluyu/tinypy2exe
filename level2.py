@@ -1,5 +1,5 @@
-import sys,os
-import shutil
+from share import *
+
 def level2(code,des):    
     text = execute_code(code)
     lines = text.split("\n")

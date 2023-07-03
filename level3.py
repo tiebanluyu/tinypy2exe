@@ -1,5 +1,4 @@
-import os
-import shutil
+from share import *
 from level2 import execute_code
 def level3(code:str,des:str):
     #创建py文件，为pyinstaller做准备

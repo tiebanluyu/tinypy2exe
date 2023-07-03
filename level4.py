@@ -1,5 +1,4 @@
-import os
-import shutil
+from share import *
 def level4(code,des):
     print(des)
     with open(des+"/code.py","w",encoding="utf-8") as f:

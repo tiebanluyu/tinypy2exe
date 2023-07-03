@@ -17,3 +17,4 @@ def remove_comments(code):
             new_line = line
         new_lines.append(new_line)
     return "\n".join(new_lines)
+import os,shutil,sys  #每个文件几乎所有模块都要 ，统一导入
