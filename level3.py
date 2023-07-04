@@ -6,7 +6,7 @@ def level3(code:str):
     有input之类的不可控函数，但没有inport的代码
     只能用pyinstaller，但大部分库可以删去，因为引用不到
     """
-
+    logging.info("打包等级level3")
     #创建py文件，为pyinstaller做准备
     with open("dist/code.py","w") as f:
         f.write(code)

@@ -7,6 +7,7 @@ def level2(code:str) -> None:
     一开始就确定了输出，可简化
 
     """
+    logging.info("打包等级level2")
     text = execute_code(code)
     lines = text.split("\n")
     prefixed_lines = ["echo " + line for line in lines]

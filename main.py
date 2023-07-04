@@ -4,7 +4,7 @@ from level3 import level3
 from level4 import level4
 from share import *
 #导入
-#logging.basicConfig(level=10)
+logging.basicConfig(level=10)
 
 
 
@@ -39,12 +39,12 @@ if __name__=="__main__":
             level3(code)
         else:#level2
             level2(code)
-    logging.warning("完成软件生成")   
+    logging.info("完成软件生成")   
     if des!="dist":
         shutil.move("dist",des)     
-        logging.warning("文件移动完成") 
-    logging.warning("无论上面怎么回事，看到这一行，代表成功")       
-    logging.warning("目标文件为dist目录下的main.exe")  
+        logging.info("文件移动完成") 
+    logging.info("无论上面怎么回事，看到这一行，代表成功")       
+    logging.info("目标文件为dist目录下的main.exe或code.exe")  
     
 
 
