@@ -1,6 +1,6 @@
 def remove_comments(code):
     """
-    Removes comments and triple-quoted strings from a block of Python code.
+    移除注释
     """
     lines = code.split("\n")
     new_lines = []
@@ -28,3 +28,11 @@ def remove_comments(code):
 
 import os, shutil, sys  # 每个文件几乎所有模块都要 ，统一导入
 import logging
+
+import time
+def fake_progress_bar():
+    t=15
+    for progress in range(0,  t+ 1, 1):
+        print(f"Progress: {progress}% [{'=' * (progress // 15)}{' ' * ((t - progress) // 10)}]", end='\r')
+        time.sleep(1)  # 模拟延迟
+
