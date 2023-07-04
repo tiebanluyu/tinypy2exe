@@ -1,10 +1,16 @@
 from share import *
 
-def level2(code:str):    
+def level2(code:str) -> None:    
+    """
+    很多程序有循环，分支，类。
+    但是没有input open等函数
+    一开始就确定了输出，可简化
+
+    """
     text = execute_code(code)
     lines = text.split("\n")
     prefixed_lines = ["echo " + line for line in lines]
-    text ="@echo off\n"+"\n".join(prefixed_lines)[0:-5]#前面加echo off 删去后面echo
+    text ="@echo off\n"+"\n".join(prefixed_lines)[0:-5]#前面加echo off 删去最后面的echo
     with open( "dist/main.bat", "w+") as file:
         file.write(text)
     src = "lv2.exe"   
@@ -12,9 +18,12 @@ def level2(code:str):
     shutil.copy2(src, "dist/main.exe")
 
 
-def execute_code(code):
-    
-    # Create a new StringIO object to capture the print output
+def execute_code(code:str) -> str:
+    """
+    试运行目标程序，将输出返回
+    """ 
+
+    #创建一个类用于收集输出
     class StringIO():#chatgpt告诉我用第三方库，但用不了，我便自己写一个，可行
         def __init__(self):
             self.text=""
@@ -25,25 +34,13 @@ def execute_code(code):
             return self.text
         def close(self):            
             pass
-
+    #试运行待打包程序，将输出收集到text中
     output = StringIO()
-
-    # Save the current stdout
     old_stdout = sys.stdout
-
-    # Redirect stdout to the StringIO object
     sys.stdout = output
-
-    # Execute the code
     exec(code)
-
-    # Get the print output from the StringIO object
     text = output.getvalue()
-
-    # Restore the original stdout
     sys.stdout = old_stdout
-
-    # Close the StringIO object
     output.close()
 
     return text
