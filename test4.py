@@ -1,7 +1,7 @@
 ﻿"""
 
 这是一个贪吃蛇程序，用于测试level4.py能否正常工作
-由林奕和autogpt合作完成
+由林奕和autogpt合作完成,
 
 """
 import pygame
