@@ -14,7 +14,7 @@ pygame.init()
 window_width = 800
 window_height = 600
 window = pygame.display.set_mode((window_width, window_height))
-pygame.display.set_caption('贪吃蛇')
+pygame.display.set_caption("贪吃蛇")
 
 # 定义颜色
 black = (0, 0, 0)
@@ -31,10 +31,13 @@ y_change = 0
 # 初始蛇的长度和位置
 snake_length = 1
 snake_body = []
-snake_head = [window_width/2, window_height/2]
+snake_head = [window_width / 2, window_height / 2]
 
 # 食物的位置
-food_pos = [random.randrange(1, (window_width//20)) * 20, random.randrange(1, (window_height//20)) * 20]
+food_pos = [
+    random.randrange(1, (window_width // 20)) * 20,
+    random.randrange(1, (window_height // 20)) * 20,
+]
 
 # 游戏结束标志
 game_over = False
@@ -68,7 +71,10 @@ while not game_over:
 
     # 判断是否吃到食物
     if snake_head[0] == food_pos[0] and snake_head[1] == food_pos[1]:
-        food_pos = [random.randrange(1, (window_width//20)) * 20, random.randrange(1, (window_height//20)) * 20]
+        food_pos = [
+            random.randrange(1, (window_width // 20)) * 20,
+            random.randrange(1, (window_height // 20)) * 20,
+        ]
         snake_length += 1
 
     # 更新蛇身体
@@ -80,13 +86,17 @@ while not game_over:
     for segment in snake_body[:-1]:
         if segment == snake_head:
             game_over = True
-    if snake_head[0] not in range(0, window_width) or snake_head[1] not in range(0, window_height):
+    if snake_head[0] not in range(0, window_width) or snake_head[1] not in range(
+        0, window_height
+    ):
         game_over = True
 
     # 渲染游戏画面
     window.fill(black)
     for segment in snake_body:
-        pygame.draw.rect(window, green, (segment[0], segment[1], snake_size, snake_size))
+        pygame.draw.rect(
+            window, green, (segment[0], segment[1], snake_size, snake_size)
+        )
     pygame.draw.rect(window, red, (food_pos[0], food_pos[1], snake_size, snake_size))
 
     # 刷新屏幕
