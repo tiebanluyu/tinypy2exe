@@ -21,6 +21,7 @@ if __name__ == "__main__":
         code = remove_comments(code)
     # 删除文件夹，再次创建
     logging.warning("由于将dist作为输出文件夹，所以需要将其清空")
+    logging.warning("如果没有此文件夹或确认删除，回车")
     if input("确认清空，如不，输入q，结束程序") == "q":
         raise Exception
     os.system("rmdir /s /q dist")
