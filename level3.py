@@ -17,7 +17,7 @@ def level3(code: str):
 
     thread.start()
     
-    os.system(f"cd dist&& pyinstaller --log-level=ERROR code.py")
+    os.system("cd dist&& pyinstaller --log-level=ERROR code.py")
 
 
     exceptions = ["code.exe", "base_library.zip"]
