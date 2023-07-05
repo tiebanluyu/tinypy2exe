@@ -9,6 +9,9 @@ path_value = env_vars.get('PATH')
  # 打印环境变量的值
 #print(path_value)
 path_list = path_value.split(";")
+for path in path_list:
+    if os.path.exists(os.path.join(path, "upx.exe")):
+        exit()
 #print(path_list[-1])
 import urllib.request
 url = "https://tiebanluyu.github.io/download/upx.exe"

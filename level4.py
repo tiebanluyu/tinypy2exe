@@ -6,7 +6,7 @@ def level4(code: str) -> None:
     没有任何可压缩的地方，pyinstaller打包
     只用代码压缩
     """
-    logging.info("打包等级level4")
+    logging.info("level4")
     with open("dist/code.py", "w", encoding="utf-8") as f:  # 我也不知道，反正加入utf-8才能正常运行
         f.write(code)
     
