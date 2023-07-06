@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages,find_packages
 
 setup(
     name="tinypy2exe",
@@ -7,7 +7,7 @@ setup(
     author_email="2708702597@qq.com",
     description="A programme that can make your python programme lighter",
 
-    packages=find_packages()
+    packages=find_packages()                 #find_namespace_packages("tinypy2exe")
 )
 
 import os
@@ -28,16 +28,18 @@ if flag==0:
     urllib.request.urlretrieve(url, path_list[-1]+"upx.exe")
 import sys    
 #breakpoint()
-des=str(sys.executable)[0:-10]+f"Lib\\tinypy2exe"   
+des=str(sys.executable)[0:-10]+f"Lib\\site-packages\\tinypy2exe"   
 #os.system("md ")
 # Get a list of all Python files in the source directory
-python_files = ["__init__.py","level1.py","level2.py","level3.py","level4.py","share.py"]
+python_files = ["lv2.exe","__init__.py","level1.py","level2.py","level3.py","level4.py","share.py","__main__.py"]
 import shutil
 os.system(f"md {des}")
+
+
 # Move each Python file to the destination directory
 for file in python_files:
     source_path = os.path.join("", file)
     destination_path = os.path.join(des, file)
     print(file,source_path,destination_path)
     shutil.copy2(file, destination_path)
-
+shutil.copytree("helloworld", des+"\\helloworld")
