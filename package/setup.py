@@ -11,6 +11,9 @@ setup(
 )
 
 import os
+import sys
+if  "install" in sys.argv:
+    exit()
  # 获取所有环境变量
 env_vars = os.environ
  # 获取特定环境变量的值

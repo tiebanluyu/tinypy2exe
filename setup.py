@@ -2,14 +2,17 @@ from setuptools import setup, find_namespace_packages,find_packages
 
 setup(
     name="tinypy2exe",
-    version="1.0",
+    version="1.1",
     author="tiebanluyu",
     author_email="2708702597@qq.com",
     description="A programme that can make your python programme lighter",
 
-    packages=find_packages()                 #find_namespace_packages("tinypy2exe")
-)
+    packages=find_packages(),   
+    data_files=["helloworld","lv2.exe"],
+    zip_safe=False
 
+)
+"""
 import os
  # 获取所有环境变量
 env_vars = os.environ
@@ -43,3 +46,4 @@ for file in python_files:
     print(file,source_path,destination_path)
     shutil.copy2(file, destination_path)
 shutil.copytree("helloworld", des+"\\helloworld")
+"""
