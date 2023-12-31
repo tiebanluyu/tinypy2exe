@@ -1,9 +1,0 @@
-README.md
-lv2.exe
-setup.py
-package/setup.py
-tinypy2exe.egg-info/PKG-INFO
-tinypy2exe.egg-info/SOURCES.txt
-tinypy2exe.egg-info/dependency_links.txt
-tinypy2exe.egg-info/not-zip-safe
-tinypy2exe.egg-info/top_level.txt
