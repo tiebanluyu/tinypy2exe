@@ -31,10 +31,6 @@ import logging
 import threading
 
 import time
-def fake_progress_bar():
-    t=100
-    for progress in range(0,  t+ 1, 1):
-        print(f"Progress: {progress}% [{'=' * (progress // 15)}{' ' * ((t - progress) // 10)}]", end='\r')
-        time.sleep(0.2)  # 模拟延迟
+
 
 

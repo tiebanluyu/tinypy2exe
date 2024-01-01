@@ -9,10 +9,8 @@ def level4(code: str) -> None:
     logging.info("level4")
     with open("dist/code.py", "w", encoding="utf-8") as f:  # 我也不知道，反正加入utf-8才能正常运行
         f.write(code)
-    
-    thread = threading.Thread(target=fake_progress_bar)
-    thread.start()
-    os.system("cd dist && pyinstaller --log-level=WARN code.py")
+
+    os.system("cd dist && pyinstaller code.py")
 
     # 删除文件和移动文件
     shutil.copytree("dist/dist/code", "dist_temp")
