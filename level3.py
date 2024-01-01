@@ -14,11 +14,7 @@ def level3(code: str):
     # 执行pyinstaller
     logging.info("可能pyinstaller打包的时间有点长，请稍等")
     logging.info("Please wait.")
-    thread = threading.Thread(target=fake_progress_bar)
-
-    thread.start()
-    
-    os.system("cd dist&& pyinstaller --log-level=ERROR code.py")
+    os.system("cd dist&& pyinstaller  code.py")
 
 
     exceptions = ["code.exe", "base_library.zip"]
