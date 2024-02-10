@@ -1,6 +1,5 @@
-a/
+build/
 *.json
 *.pyc
-code/
 dist/
 dist_temp/

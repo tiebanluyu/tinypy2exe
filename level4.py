@@ -20,3 +20,5 @@ def level4(code: str) -> None:
     os.system("rmdir /s /q dist")
     os.system("ren dist_temp dist ")
 
+    os.system("rmdir /S /Q build")
+

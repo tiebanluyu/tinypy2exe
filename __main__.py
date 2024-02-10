@@ -20,12 +20,7 @@ if __name__ == "__main__":
         code = file.read()
         code = remove_comments(code)
     # 删除文件夹，再次创建
-    logging.warning("由于将dist作为输出文件夹，所以需要将其清空")
-    logging.warning("We use dist file,so we have to clean it.")
-    logging.warning("如果没有此文件夹或确认删除，回车")
-    logging.warning("If there is no dist file or you make sure you want to del it")
-    if input("确认清空，如不，输入q，结束程序") == "q":
-        raise Exception
+
     os.system("rmdir /s /q dist")
     logging.warning("再次创建dist文件夹 Rebuild dist")
     os.system("md dist")
@@ -39,10 +34,9 @@ if __name__ == "__main__":
             level3(code)
         else:  # level2
             level2(code)
-    logging.info("完成软件生成 Build done")
+    logging.info("Build done")
     if des != "dist":
         shutil.move("dist", des)
-        logging.info("文件移动完成 File move done")
-    logging.info("无论上面怎么回事，看到这一行，代表成功 Build successfully")
-    logging.info("目标文件为目录下的main.exe或code.exe")
-    logging.info("You can see main.exe or code.exe")
+        logging.info("File move successfully")
+    logging.info("Build successfully")
+
