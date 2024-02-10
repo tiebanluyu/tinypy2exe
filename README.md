@@ -1,12 +1,19 @@
 # tinypy2exe
-## we ofen use pyinstaller to turn python file into exe or other file
-### However,exe programme is much bigger than .py .That make me unhappy.
-## In order to make the programme smaller.I make this .
-## Many of them are writen by ChatGPT.
-### That'great.
-## Download the repository.
-### run this code
-` python main.py example.py `
-## example.py is the python file that want to turn into exe.
-## must be in the same path.
-## only support windows.
+## 功能
+这个软件可以获得空间更加小的pyinstaller包
+## 如何使用
+python main.py (your-python-file) [name]
+比如：
+看到test开头的文件了吗    
+python main.py test1.py file  
+然后程序就会调用pyinstaller，获得可执行程序，
+放在file目录下  
+删去不必要的东西（level3）  
+如果可行，使用c语言进行重写程序，在这种情况下  
+程序会很小，不到正常python包的10%（level1和level2）  
+
+## 和pyinstaller的关系
+本程序由pyinstaller作为核心，
+自己不提供打包方式，
+更不能替代pyinstaller。
+
