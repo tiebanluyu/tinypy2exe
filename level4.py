@@ -21,4 +21,5 @@ def level4(code: str) -> None:
     os.system("ren dist_temp dist ")
 
     os.system("rmdir /S /Q build")
+    os.system("del main.spec")
 
