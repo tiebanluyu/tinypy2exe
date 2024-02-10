@@ -8,5 +8,5 @@ def level1(code: str):
     """
     logging.info("level1")
 
-    src = "helloworld/helloworld.exe"
+    src = "helloworld.exe"
     shutil.copy2(src, "dist/main.exe")

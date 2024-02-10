@@ -1,4 +1,5 @@
 from share import *
+from PyInstaller import __main__ as pyinstaller
 
 def level4(code: str) -> None:
     """
@@ -8,14 +9,14 @@ def level4(code: str) -> None:
     logging.info("level4")
     with open("dist/main.py", "w", encoding="utf-8") as f:  # 我也不知道，反正加入utf-8才能正常运行
         f.write(code)
-
-    os.system("cd dist && pyinstaller main.py")
+    old_directory=sys.path[0]
+    os.chdir(old_directory+"\\dist")
+    #os.system("pyinstaller main.py")
+    pyinstaller.run(["main.py"])
 
     # 删除文件和移动文件
-    shutil.copytree("dist/dist/main", "dist_temp")
-
-
+    shutil.copytree("main", "../dist_temp")
+    os.chdir(old_directory)
     os.system("rmdir /s /q dist")
-
     os.system("ren dist_temp dist ")
 
